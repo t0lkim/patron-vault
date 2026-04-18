@@ -1,0 +1,20 @@
+[package]
+name = "patreon-dl"
+version = "0.1.0"
+edition = "2021"
+authors = ["Mike Lott <me@t0lkim.dev>"]
+license = "MIT"
+description = "Download media content from Patreon creators you subscribe to"
+
+[dependencies]
+anyhow = "1"
+chrono = { version = "0.4", features = ["serde"] }
+clap = { version = "4", features = ["derive", "env"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+ureq = { version = "3", features = ["json"] }
+
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1
